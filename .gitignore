@@ -1,0 +1,10 @@
+#ignore my virtual environment
+research/
+
+# Ignore personal or reference materials
+papers/
+previous_code/
+
+
+# Ignore just checkpoint files (Jupyter autosaves)
+**/.ipynb_checkpoints/
