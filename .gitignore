@@ -8,3 +8,5 @@ previous_code/
 
 # Ignore just checkpoint files (Jupyter autosaves)
 **/.ipynb_checkpoints/
+
+desktop.ini
