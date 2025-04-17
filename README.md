@@ -7,10 +7,10 @@ Figuring this out right now
 
 ## 🛠 Setup
 
-```bash
+<!-- ```bash
 python -m venv research
 .\research\Scripts\activate   
-pip install -r requirements.txt
+pip install -r requirements.txt -->
 
 
 
