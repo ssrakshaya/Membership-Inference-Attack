@@ -4,6 +4,12 @@ This project explores membership inference attacks (MIAs) with a focus on replic
 
 ## 📁 Project Structure
 Figuring this out right now 
+Folder: My Code
+- this contains code that I am working on utilizing the referenced code
+Folder: Referenced_code
+- this folder contained code obtained from other repositories
+Folder: Presentations
+- contains ..pptx files of different research papers I created a presentation summarizing
 
 ## 🛠 Setup
 
