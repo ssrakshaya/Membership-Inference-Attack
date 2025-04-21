@@ -1,7 +1,16 @@
+#Importing pytorch - which is used to run the model and maange tensors (on the CPU and GPU)
+#transformers uses the hugging face library, auto tokenizer prepares text for models
+#Auto model loads a language model 
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import numpy as np
 
+
+"""
+This function takes a string of text 
+and computes the log probabilities of each token the model predicts. 
+Why? Because low log-probs indicate model "surprise," which is key to min‑k%++.
+"""
 def calculate_log_probs(text, model, tokenizer, device='cpu'):
     """
     Given an input text, this function:
@@ -10,13 +19,16 @@ def calculate_log_probs(text, model, tokenizer, device='cpu'):
     - Computes the log probabilities for each token.
     Returns a list of log probabilities for each token (excluding the first).
     """
-    model.eval()
-    # Tokenize and move to the correct device (CPU or GPU)
+    model.eval() #sets model to evaluation mode
+    # Tokenizes input text into IDs and move to the correct device (CPU or GPU)
     inputs = tokenizer.encode(text, return_tensors="pt").to(device)
     
+    #runs the model without tracking gradients
     with torch.no_grad():
         # The model predicts the next token probabilities and computes loss
         outputs = model(inputs, labels=inputs)
+        #Also calculates the loss and raw model outputs (logits), 
+        # #which are scores for each token prediction.
         loss, logits = outputs[:2]
     
     # Convert logits to log-probabilities
